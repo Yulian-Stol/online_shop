@@ -289,7 +289,9 @@
 			z-index: 1000
 			width: 100vw
 			height: 100%
+			height: 250px !important
 			padding: 25px
+			padding: 0 !important
 			overflow: auto
 			box-shadow: 0 5px 5px rgba(#111, 0.1)
 
@@ -300,6 +302,7 @@
 			+r(1200)
 				flex-direction: column
 				gap: 25px
+				gap: 0px !important
 				align-items: center
 				text-align: center
 
@@ -311,6 +314,7 @@
 				+r(1200)
 					font-size: 20px
 					font-weight: 700
+					line-height: 40px !important
 
 				&:hover
 					color: #999
@@ -325,6 +329,18 @@
 					color:#999
 				&::before
 					background: #999
+
+				+r(1200)
+					&:nth-child(1)
+						background: #f8f8f8
+					&:nth-child(2)
+						background: #f8f8f8
+					&:nth-child(3)
+						background: #f8f8f8
+					&:nth-child(4)
+						background: #f8f8f8
+					border-bottom: 10px solid #FFF !important
+					width: 100% !important
 
 		&--active
 			right: 0
@@ -357,7 +373,7 @@
 			height: 20px
 
 	&__cart
-		&:hover i
+		&:hover .header__item
 			opacity: 1
 			visibility: inherit
 			margin-top: 50px
