@@ -2,6 +2,9 @@
 
 document.addEventListener("DOMContentLoaded", function() {
 
+
+//----------------PRELOADER-----------------------
+
 	window.onload = function () {
 		document.body.classList.add('loaded_hiding');
 		window.setTimeout(function () {
@@ -9,7 +12,6 @@ document.addEventListener("DOMContentLoaded", function() {
 			document.body.classList.remove('loaded_hiding');
 		}, 500);
 	}
-
 
 //----------------------HAMBURGER-----------------------
 	const hamburger = (hamburgerButton, hamburgerNav, hamburgerHeader) => {
