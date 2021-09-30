@@ -28,16 +28,16 @@
 	height: 45px
 	border-radius: 20px
 	max-width: fit-content
-	border: 1px solid $dark
-	background-color: $dark
+	border: 1px solid $accent
+	background-color: $accent
 	padding: 0 15px
 	font-size: 16px
 	color: #fff
 	font-weight: 600
 
 	&:hover
-		border: 1px solid $accent
-		background: $accent
+		border: 1px solid $dark
+		background: $dark
 		color: #fff
 
 	&:active
@@ -68,7 +68,6 @@
 		&:active
 			border: 1px solid $button
 			background: $button
-			color: #fff
 
 	&--checkout
 		width: 180px
@@ -84,15 +83,28 @@
 		&:hover
 			border: 1px solid $button
 			background: $button
-			color: #FFF
 
 		&:active
 			border: 1px solid $button
 			background: $button
-			color: #fff
 
 	&--cart
 		width: 100%
+
+	&--page
+		font-size: 14px
+		font-weight: 400
+		height: 32px
+		max-width: 100px
+		padding: 0 30px
+
+		&_buy
+			font-size: 14px
+			font-weight: 400
+			height: 32px
+			max-width: 100px
+			padding: 0 45px
+
 
 // -----HAMBURGER-----
 .hamburger
@@ -174,12 +186,12 @@
 .h1
 	font-size: 30px
 	color: $dark
-	font-family: Gothic, sans-serif
+	font-family: $f_title
 
 .h2
 	font-size: 50px
 	margin-bottom: 15px
-	font-family: Gothic, sans-serif
+	font-family: $f_title
 
 	+r(1200)
 		font-size: 40px
@@ -193,8 +205,8 @@
 
 .h3
 	font-size: 26px
-	margin-bottom: 18px
 	font-weight: 400
+	margin-bottom: 18px
 
 	+r(1200)
 		font-size: 20px
@@ -231,7 +243,7 @@
 		&::before
 			transform: scale(1)
 
-	&:focus
+	&:active
 		color: $text
 		text-decoration: none
 		&::before
@@ -247,6 +259,9 @@
 	background: rgba(255, 255, 255, .95)
 	z-index: 100
 
+	&--page
+		position: static
+
 	&--active
 		border-bottom: 1px solid #c2c2c2
 
@@ -255,7 +270,6 @@
 
 	&__container
 		+between
-		align-items: center
 
 	&__logo
 		display: block
@@ -263,21 +277,17 @@
 		height: 60px
 		text-align: center
 
-		a
-			display: block
-
 		b
 			font-size: 42px
 			line-height: 42px
 			color:#128CDB
-			font-family: Ginza, sans-serif
+			font-family: $f_logo
 
-		p
+		span
 			font-size: 11px
 			color: $dark
 
 	&__nav
-
 		+transition
 
 		+r(1200)
@@ -289,9 +299,8 @@
 			z-index: 1000
 			width: 100vw
 			height: 100%
-			height: 250px !important
-			padding: 25px
-			padding: 0 !important
+			height: 250px
+			padding: 0
 			overflow: auto
 			box-shadow: 0 5px 5px rgba(#111, 0.1)
 
@@ -301,46 +310,33 @@
 
 			+r(1200)
 				flex-direction: column
-				gap: 25px
-				gap: 0px !important
+				gap: 0px
 				align-items: center
 				text-align: center
 
+			li
+				+r(1200)
+					padding: 0 15px
+					border-bottom: 10px solid #fff
+					width: 100%
+
 			a
+				@extend .link
 				font-size: 16px
 				color: $dark
-				+transition 
+				+transition
 
 				+r(1200)
 					font-size: 20px
 					font-weight: 700
-					line-height: 40px !important
+					line-height: 40px
 
 				&:hover
 					color: #999
-					+transition 
+					+transition
 
-			li
-				@extend .link
-				color: $dark
-				&:focus
-					color:#999
-				&:hover
-					color:#999
 				&::before
 					background: #999
-
-				+r(1200)
-					&:nth-child(1)
-						background: #f8f8f8
-					&:nth-child(2)
-						background: #f8f8f8
-					&:nth-child(3)
-						background: #f8f8f8
-					&:nth-child(4)
-						background: #f8f8f8
-					border-bottom: 10px solid #FFF !important
-					width: 100% !important
 
 		&--active
 			right: 0
@@ -356,7 +352,7 @@
 		color: $accent
 		&:hover
 			color: $accent
-		&:focus
+		&:active
 			color: $accent
 		&::before
 			background: $accent
@@ -368,17 +364,18 @@
 		position: relative
 		margin-right: 10px
 
+		&:hover
+			.header__mincart
+				opacity: 1
+				visibility: inherit
+				margin-top: 30px
+				+transition
+
 		svg
 			width: 20px
 			height: 20px
 
 	&__cart
-		&:hover .header__item
-			opacity: 1
-			visibility: inherit
-			margin-top: 50px
-			+transition
-
 		&_quantity
 			color: $dark
 			border: 1px solid #ddd
@@ -391,32 +388,110 @@
 			top: -11px
 			left: 18px
 
-	&__item
+	&__mincart
+		position: absolute
 		right: 0
-		background: #16171f
 		opacity: 0
 		visibility: hidden
-		position: absolute
 		margin-top: 0
-		min-width: 250px
-		min-height: 100px
-		padding: 15px
+		width: 270px
+		background: #16171f
 		z-index: 2000
 		+transition
 
-	&__product
-		display: flex
-		align-items: center
-		margin-bottom: 20px
-		img
+		&_wrap
+			overflow: auto
+			padding-top: 15px
+			margin-bottom: 139px
+			max-height: calc( 100vh - 200px )
+
+			/* полоса прокрутки (скроллбар) */
+			&::-webkit-scrollbar
+				width: 8px
+				height: 8px
+				background-color: #16171f
+
+			/* ползунок скроллбара */
+			&::-webkit-scrollbar-thumb
+				background-color: #16171f
+				border-radius: 9em
+				box-shadow: inset 1px 1px 10px #f3faf7
+
+			&::-webkit-scrollbar-thumb:hover
+				background-color: #16171f
+
+			/* Стрелки */
+			&::-webkit-scrollbar-button:vertical:start:decrement
+				background-color: #16171f
+
+			&::-webkit-scrollbar-button:vertical:end:increment
+				background-color: #16171f
+
+			&::-webkit-scrollbar-button:horizontal:start:decrement
+				background-color: #16171f
+
+			&::-webkit-scrollbar-button:horizontal:end:increment
+				background-color: #16171f
+
+		&_product
+			display: flex
+			align-items: center
+			margin-bottom: 20px
+			padding: 0 15px
+			gap: 10px
+
 			&:last-child
-				width: 20px
+				margin-bottom: 0px
+
+		&_img
 			width: 70px
+			height: 70px
+			display: block
+			flex-shrink: 0
+
+			img
+				width: 100%
+				height: 100%
+				object-fit: cover
+				
+
+		&_close
+			position: relative
+			width: 18px
+			height: 18px
+			background: transparent
+			border: 1px solid #fff
+			border-radius: 50%
+			flex-shrink: 0
+
+			&::after,
+			&::before
+				content: ''
+				position: absolute
+				top: 50%
+				left: 50%
+				display: block
+				height: 1px
+				width: 10px
+				background: #fff
+				+transition
+
+			&::after
+				transform: translate(-50%, -50%) rotate(-45deg)
+
+			&::before
+				transform: translate(-50%, -50%) rotate(-135deg)
+
+			&:hover
+				border-color: red
+				&::after,
+				&::before
+					background: red
 
 	&__text
-		margin-left: 10px
 		text-align: left
-		h4
+
+		a
 			font-size: 16px
 			font-style: normal
 			color: #FFF
@@ -430,7 +505,11 @@
 			align-items: center
 
 	&__delivery
-		margin-bottom: 15px
+		position: absolute
+		bottom: 0
+		width: 100%
+		background: #16171f
+		padding: 15px
 
 		p
 			font-size: 15px
@@ -444,10 +523,15 @@
 			display: flex
 			align-items: center
 
+			span
+				font-weight: 400
+				margin-left: 5px
+
 	&__row
 		display: flex
 		justify-content: space-between
 		align-items: center
+		margin-bottom: 10px
 
 	&__line
 		height: 1px
@@ -456,6 +540,7 @@
 		margin: 10px 0
 
 	&__button
+		display: block
 		width: 100%
 		font-size: 14px
 		font-style: normal
@@ -1739,14 +1824,16 @@
 
 			+r(576)
 				margin-bottom: 10px
-		
-		ul
-			li
-				margin-bottom: 10px
-				a
-					@extend .link
-					font-size: 14px
-					color: #626262
+
+		li
+			margin-bottom: 10px
+			&:last-child
+				margin-bottom: 0
+
+		a
+			@extend .link
+			font-size: 14px
+			color: #626262
 
 	&__logo
 		display: block
@@ -1770,6 +1857,799 @@
 		justify-content: center
 		img
 			width: 50px
+
+
+.headerPage
+	position: sticky
+	z-index: 1
+	top: 0
+	background: rgba(255,255,255,.95)
+	padding: 10px 0
+
+	&__container
+		display: flex
+		justify-content: space-between
+		align-items: center
+
+		+r(576)
+			flex-direction: column
+
+		h3
+			font-family: $f_title
+			font-size: 30px
+			color: $title
+
+			+r(992)
+				font-size: 25px
+
+			+r(767)
+				font-size: 20px
+
+			+r(576)
+				margin-bottom: 5px
+
+	&__menu
+		display: flex
+		align-items: center
+		justify-content: center
+
+		+r(400)
+			flex-direction: column
+			gap: 10px
+
+	&__list
+		display: flex
+		align-items: center
+		gap: 40px
+		margin-right: 50px
+
+		+r(992)
+			gap: 30px
+			margin-right: 30px
+
+		+r(767)
+			gap: 10px
+			margin-right: 10px
+		
+		+r(400)
+			flex-wrap: wrap
+			justify-content: center
+
+	&__iitem
+		font-size: 15px
+		color: $text
+
+		+r(767)
+			font-size: 14px
+
+.bannerLaser
+	background: url(../img/l800_banner.png)
+	+cover
+
+	+r(576)
+		background-position-x: 55%
+
+	&__container
+		padding-top: 80px
+		padding-bottom: 80px
+		display: flex
+		flex-direction: column
+		gap: 200px
+
+		+r(1200)
+			gap: 130px
+
+		+r(767)
+			gap: 50px
+			padding-top: 30px
+			padding-bottom: 30px
+
+	&__title
+		padding: 50px 70px 50px 50px
+		max-width: fit-content
+		background: rgba(255,255,255,.50)
+
+		+r(767)
+			padding: 20px
+
+		h1
+			font-size: 40px
+
+			+r(1200)
+				font-size: 35px
+
+			+r(767)
+				font-size: 25px
+
+		p
+			font-size: 25px
+			color: $dark
+
+			+r(1200)
+				font-size: 23px
+
+			+r(767)
+				font-size: 18px
+
+	&__subtitle
+		max-width: fit-content
+		text-align: right
+		background: rgba(255,255,255,.50)
+		padding: 20px 40px
+
+		+r(767)
+			padding: 20px
+
+		h4
+			color: #128CDB
+			font-size: 30px
+
+			+r(1200)
+				font-size: 25px
+
+			+r(767)
+				font-size: 22px
+
+		p
+			font-size: 16px
+			color: $title
+			margin-bottom: 10px
+
+			+r(1200)
+				font-size: 15px
+
+	&__buy
+		display: flex
+		align-items: center
+		gap: 30px
+
+		a
+			font-size: 18px
+			color: $dark
+			text-decoration: underline
+
+			+r(767)
+				font-size: 16px
+
+.benefitsLaser
+	padding-top: 50px
+	padding-bottom: 80px
+
+	+r(767)
+		padding-top: 20px
+		padding-bottom: 20px
+
+	&__block
+		display: flex
+		justify-content: space-around
+
+		+r(1200)
+			flex-direction: column
+			align-items: center
+			gap: 30px
+
+	&__bg
+		background: #f9f9f9
+		max-width: 570px
+
+	&__text
+		max-width: 570px
+		height: 129px
+		padding: 20px 15px 20px 315px
+		background: url(../img/l800-block.png)
+		background-repeat: no-repeat
+		background-size: 57%
+		background-position: left
+		display: flex
+		align-items: center
+
+		+r(576)
+			padding: 20px 15px 20px 265px
+			background-size: 50%
+
+		+r(400)
+			padding: 20px 15px 20px 170px
+
+
+		p
+			font-size: 22px
+			font-weight: 700
+			text-transform: uppercase
+			line-height: 1.5
+			color: #3e4044
+
+			+r(992)
+				font-size: 20px
+
+			+r(576)
+				font-size: 14px
+
+		&_more
+			max-width: 570px
+			height: 129px
+			padding: 20px 15px 20px 315px
+			background: url(../img/l800-block1.png)
+			background-repeat: no-repeat
+			background-size: 61%
+			background-position: left
+			display: flex
+			align-items: center
+
+			+r(576)
+				padding: 20px 15px 20px 175px
+				background-size: 60%
+				width: 100%
+
+			p
+				font-size: 22px
+				font-weight: 700
+				text-transform: uppercase
+				line-height: 1.5
+				color: #3e4044
+
+				+r(992)
+					font-size: 20px
+
+				+r(576)
+					font-size: 15px
+
+.cleanWater
+	background: url(../img/l800-katfloor.jpg) 
+	+cover
+
+	+r(576)
+		background-position: right
+
+	&__block
+		padding: 10% 65% 10% 10%
+		display: table-cell
+		vertical-align: middle
+
+		+r(1200)
+			padding: 8% 65% 8% 0
+
+		+r(992)
+			padding: 6% 60% 6% 0
+
+		+r(767)
+			padding: 3% 60% 3% 0
+
+		+r(576)
+			padding: 3% 20% 3% 0
+
+		h2
+			margin-bottom: 15px
+			font-size: 24px
+			color: #079ad3
+
+			+r(1200)
+				font-size: 22px
+
+			+r(992)
+				font-size: 20px
+				margin-bottom: 10px
+
+			+r(576)
+				font-size: 18px
+				margin-bottom: 5px
+
+		p
+			color: #fff
+			line-height: 24px
+
+			+r(1200)
+				line-height: 23px
+
+			+r(992)
+				line-height: 20px
+
+			+r(576)
+				line-height: 18px
+
+.phone
+	background: url(../img/l800-appMob.jpg) 
+	+cover
+
+	+r(1200)
+		background-position-x: 60%
+
+	+r(992)
+		background-position-x: 50%
+
+	+r(767)
+		background-position-x: 40%
+
+	+r(576)
+		background-position-x: 55%
+
+	&__block
+		padding: 6% 65% 6% 10%
+		display: table-cell
+		vertical-align: middle
+
+		+r(1200)
+			padding: 5% 65% 5% 0
+
+		+r(992)
+			padding: 4% 60% 4% 0
+
+		+r(767)
+			padding: 3% 45% 3% 0
+
+		+r(576)
+			padding: 3% 20% 3% 0
+
+		h2
+			margin-bottom: 15px
+			font-size: 24px
+			color: #079ad3
+
+			+r(1200)
+				font-size: 22px
+
+			+r(992)
+				font-size: 20px
+				margin-bottom: 10px
+
+			+r(576)
+				font-size: 18px
+				margin-bottom: 5px
+
+				br
+					display: none
+
+		p
+			line-height: 24px
+			color: #626262
+			margin-bottom: 10px
+			&:last-child
+				margin-bottom: 0
+
+			+r(1200)
+				line-height: 23px
+
+			+r(992)
+				line-height: 20px
+
+			+r(576)
+				line-height: 18px
+
+.lds
+	background: url(../img/l800-lds.jpg) 
+	+cover
+
+	+r(1200)
+		background-position-x: 30%
+
+	+r(767)
+		background-position-x: 40%
+
+	&__block
+		padding: 10% 10% 10% 65%
+		display: table-cell
+		vertical-align: middle
+
+		+r(1200)
+			padding: 8% 0% 8% 65%
+
+		+r(992)
+			padding: 6% 0% 6% 60%
+
+		+r(767)
+			padding: 3% 0% 3% 45%
+
+		+r(576)
+			padding: 3% 0% 3% 20%
+			text-align: right
+
+		h2
+			margin-bottom: 15px
+			font-size: 24px
+			color: #079ad3
+			
+			+r(1200)
+				font-size: 22px
+
+			+r(992)
+				font-size: 20px
+				margin-bottom: 10px
+
+			+r(576)
+				font-size: 18px
+				margin-bottom: 5px
+
+		p
+			color: #fff
+			line-height: 24px
+
+			+r(1200)
+				line-height: 23px
+
+			+r(992)
+				line-height: 20px
+
+			+r(576)
+				line-height: 18px
+
+.motor
+	background: url(../img/l800-motor.jpg) 
+	+cover
+
+	+r(1200)
+		background-position-x: 25%
+
+	&__block
+		padding: 10% 10% 10% 65%
+		display: table-cell
+		vertical-align: middle
+
+		+r(1200)
+			padding: 8% 0% 8% 65%
+
+		+r(992)
+			padding: 6% 0% 6% 60%
+
+		+r(767)
+			padding: 3% 0% 3% 45%
+
+		+r(576)
+			padding: 3% 0% 3% 20%
+			text-align: right
+
+		h2
+			margin-bottom: 15px
+			font-size: 24px
+			color: #079ad3
+
+			+r(1200)
+				font-size: 22px
+
+			+r(992)
+				font-size: 20px
+				margin-bottom: 10px
+
+			+r(576)
+				font-size: 18px
+				margin-bottom: 5px
+
+		p
+			color: #fff
+			line-height: 24px
+
+			+r(1200)
+				line-height: 23px
+
+			+r(992)
+				line-height: 20px
+
+			+r(576)
+				line-height: 18px
+
+.power
+	background: url(../img/l800-power.jpg) 
+	+cover
+
+	+r(767)
+		background-position-x: 60%
+
+	+r(576)
+		background-position-x: 75%
+
+	&__block
+		padding: 10% 10% 10% 65%
+		display: table-cell
+		vertical-align: middle
+
+		+r(1200)
+			padding: 8% 0% 8% 65%
+
+		+r(992)
+			padding: 6% 0% 6% 60%
+
+		+r(767)
+			padding: 3% 0% 3% 50%
+
+		+r(576)
+			padding: 3% 0% 3% 20%
+			text-align: right
+
+		h2
+			margin-bottom: 15px
+			font-size: 24px
+			color: #079ad3
+
+			+r(1200)
+				font-size: 22px
+
+			+r(992)
+				font-size: 20px
+				margin-bottom: 10px
+
+			+r(576)
+				font-size: 18px
+				margin-bottom: 5px
+
+		p
+			color: #626262
+			line-height: 24px
+
+			+r(1200)
+				line-height: 23px
+
+			+r(992)
+				line-height: 20px
+
+			+r(576)
+				line-height: 18px
+
+.proc
+	background: url(../img/l800-proc.jpg) 
+	+cover
+
+	+r(576)
+		background-position: right
+
+	&__block
+		padding: 10% 65% 10% 10%
+		display: table-cell
+		vertical-align: middle
+
+		+r(1200)
+			padding: 8% 65% 8% 0
+
+		+r(992)
+			padding: 6% 60% 6% 0
+
+		+r(767)
+			padding: 3% 60% 3% 0
+
+		+r(576)
+			padding: 3% 20% 3% 0
+
+		h2
+			margin-bottom: 15px
+			font-size: 24px
+			color: #079ad3
+
+			+r(1200)
+				font-size: 22px
+
+			+r(992)
+				font-size: 20px
+				margin-bottom: 10px
+
+			+r(576)
+				font-size: 18px
+				margin-bottom: 5px
+
+		p
+			color: #fff
+			line-height: 24px
+
+			+r(1200)
+				line-height: 23px
+
+			+r(992)
+				line-height: 20px
+
+			+r(576)
+				line-height: 18px
+
+.filtration
+	background: url(../img/l800-filtration.jpg) 
+	background-repeat: no-repeat
+	background-position: center
+
+	&__block
+		padding: 10% 65% 10% 10%
+		display: table-cell
+		vertical-align: middle
+
+		+r(1200)
+			padding: 8% 65% 8% 0
+
+		+r(992)
+			padding: 6% 60% 6% 0
+
+		+r(767)
+			padding: 3% 60% 3% 0
+
+		+r(576)
+			padding: 3% 20% 3% 0
+
+		h2
+			margin-bottom: 15px
+			font-size: 24px
+			color: #079ad3
+
+			+r(1200)
+				font-size: 22px
+
+			+r(992)
+				font-size: 20px
+				margin-bottom: 10px
+
+			+r(576)
+				font-size: 18px
+				margin-bottom: 5px
+
+		p
+			color: #626262
+			line-height: 24px
+
+			+r(1200)
+				line-height: 23px
+
+			+r(992)
+				line-height: 20px
+
+			+r(576)
+				line-height: 18px
+
+.turbo
+	background: url(../img/l800-turbo.jpg) 
+	+cover
+
+	+r(1200)
+		background-position-x: 30%
+
+	+r(767)
+		background-position-x: 40%
+
+	&__block
+		padding: 10% 10% 10% 65%
+		display: table-cell
+		vertical-align: middle
+
+		+r(1200)
+			padding: 8% 0% 8% 65%
+
+		+r(992)
+			padding: 6% 0% 6% 60%
+
+		+r(767)
+			padding: 3% 0% 3% 45%
+
+		+r(576)
+			padding: 3% 0% 3% 20%
+			text-align: right
+
+		h2
+			margin-bottom: 15px
+			font-size: 24px
+			color: #079ad3
+			
+			+r(1200)
+				font-size: 22px
+
+			+r(992)
+				font-size: 20px
+				margin-bottom: 10px
+
+			+r(576)
+				font-size: 18px
+				margin-bottom: 5px
+
+		p
+			color: #fff
+			line-height: 24px
+
+			+r(1200)
+				line-height: 23px
+
+			+r(992)
+				line-height: 20px
+
+			+r(576)
+				line-height: 18px
+
+.accum
+	background: url(../img/l800-accum.jpg) 
+	+cover
+
+	+r(576)
+		background-position: right
+
+	&__block
+		padding: 15% 65% 15% 15%
+		display: table-cell
+		vertical-align: middle
+
+		+r(1200)
+			padding: 8% 65% 8% 0
+
+		+r(992)
+			padding: 6% 60% 6% 0
+
+		+r(767)
+			padding: 3% 60% 3% 0
+
+		+r(576)
+			padding: 3% 20% 3% 0
+
+		h2
+			margin-bottom: 15px
+			font-size: 24px
+			color: #079ad3
+
+			+r(1200)
+				font-size: 22px
+
+			+r(992)
+				font-size: 20px
+				margin-bottom: 10px
+
+			+r(576)
+				font-size: 18px
+				margin-bottom: 5px
+
+		p
+			color: #626262
+			line-height: 24px
+
+			+r(1200)
+				line-height: 23px
+
+			+r(992)
+				line-height: 20px
+
+			+r(576)
+				line-height: 18px
+
+.timer
+	background: url(../img/l800-timer.jpg) 
+	+cover
+
+	+r(1200)
+		background-position-x: 30%
+
+	+r(767)
+		background-position-x: 40%
+
+	&__block
+		padding: 15% 10% 15% 65%
+
+		+r(1200)
+			padding: 8% 0% 8% 65%
+
+		+r(992)
+			padding: 6% 0% 6% 60%
+
+		+r(767)
+			padding: 3% 0% 3% 45%
+
+		+r(576)
+			padding: 3% 0% 3% 20%
+			text-align: right
+
+		h2
+			margin-bottom: 15px
+			font-size: 24px
+			color: #079ad3
+			
+			+r(1200)
+				font-size: 22px
+
+			+r(992)
+				font-size: 20px
+				margin-bottom: 10px
+
+			+r(576)
+				font-size: 18px
+				margin-bottom: 5px
+
+		p
+			color: #626262
+			line-height: 24px
+
+			+r(1200)
+				line-height: 23px
+
+			+r(992)
+				line-height: 20px
+
+			+r(576)
+				line-height: 18px
 
 // -----MODAL-----
 .modal
