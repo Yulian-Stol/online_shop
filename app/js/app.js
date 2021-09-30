@@ -13,6 +13,8 @@ document.addEventListener("DOMContentLoaded", function() {
 		}, 500);
 	}
 
+
+
 //----------------------HAMBURGER-----------------------
 	const hamburger = (hamburgerButton, hamburgerNav, hamburgerHeader) => {
 		const button = document.querySelector(hamburgerButton),
@@ -46,6 +48,9 @@ document.addEventListener("DOMContentLoaded", function() {
 
 	};
 	headerFixed('.header', '.header--active');
+	// headerFixed('.header__basket', '.header__basket--active');
+
+	
 
 	//----------------------TABS-JS----------------------
 	const tabs = (headerSelector, tabSelector, contentSelector, activeClass) => {
@@ -94,6 +99,7 @@ document.addEventListener("DOMContentLoaded", function() {
 		}
 	};
 	tabs('.tabs', '.tabs__item', '.tabs__wrap', 'tabs--active');
+	tabs('.headerPage__menu', '.headerPage__item', '.headerPage__wrap', 'tabs--activee');
 
 
 	//----------------------SLIDER-hero----------------------
