@@ -2360,11 +2360,11 @@
 
 .bg-right
 	background-repeat: no-repeat !important
-	background-position: 50% !important
+	background-position: right 25% center !important
 
 .bg-left
 	background-repeat: no-repeat !important
-	background-position: -50% !important
+	background-position: left 25% center !important
 
 .allrobot
 	padding: 50px 0
@@ -2482,8 +2482,7 @@
 		+r(576)
 			line-height: 18px
 
-
-
+//----tabs-main-page----
 .parameterspage
 
 	&__img
@@ -2632,6 +2631,40 @@
 				width: 100%	
 				padding-left: 50%
 
+//----another-block----
+.aboutm
+	background: #f3f3f3
+
+	h2
+			margin-bottom: 15px
+			font-size: 24px
+			color: #079ad3
+
+			+r(1200)
+				font-size: 22px
+
+			+r(992)
+				font-size: 20px
+				margin-bottom: 10px
+
+			+r(576)
+				font-size: 18px
+				background-color: rgba(0,0,0,0.4)
+				border-radius: 10px
+				text-align: center
+				padding: 5px
+
+	&__item
+		display: flex
+
+	&__list
+		display: grid
+		grid-template-columns: 300px 300px
+		gap: 50px
+
+	&__text
+		h4
+			font-size: 20px
 
 // -----MODAL-----
 .modal
@@ -2748,6 +2781,11 @@
 		p
 			text-align: center
 			font-size: 25px
+			margin: auto
+
+			+r(576)
+				font-size: 20px
+
 			span
 				color: #128CDB
 				display: block
