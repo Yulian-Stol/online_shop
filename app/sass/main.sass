@@ -270,7 +270,7 @@
 		&::before
 			transform: scale(1)
 
-
+//----index-page----
 .header
 	position: fixed
 	top: 0
@@ -1189,6 +1189,7 @@
 		cursor: pointer
 		display: flex
 		justify-content: center
+		gap: 5px
 
 		&:hover svg
 			fill: #e49506 
@@ -1893,7 +1894,7 @@
 		img
 			width: 50px
 
-
+//----main-page----
 .basket
 	&--active
 		visibility: inherit
@@ -1901,7 +1902,7 @@
 		opacity: 1
 		+transition
 
-.headerPage
+.headerpage
 	position: sticky
 	z-index: 1
 	top: 0
@@ -1979,7 +1980,7 @@
 		+r(992)
 			gap: 15px
 
-.bannerLaser
+.bannerpage
 	padding-top: 80px
 	padding-bottom: 80px
 	background-repeat: no-repeat !important
@@ -2054,9 +2055,13 @@
 				font-size: 22px
 
 		p
+			display: flex
+			align-items: center
+			justify-content: flex-end
 			font-size: 16px
 			color: $title
 			margin-bottom: 10px
+			gap: 5px
 
 			+r(1200)
 				font-size: 15px
@@ -2075,7 +2080,7 @@
 			+r(767)
 				font-size: 16px
 
-.benefitsLaser
+.benefitspage
 	padding-top: 50px
 	padding-bottom: 80px
 
@@ -2126,7 +2131,7 @@
 			+r(576)
 				font-size: 11px
 
-.work
+.workpage
 	padding-top: 80px
 	padding-bottom: 80px
 	background: #f2f3f3
@@ -2161,6 +2166,10 @@
 
 			+r(992)
 				margin-bottom: 15px
+
+			+r(767)
+				br
+					display: none
 
 	&__list
 		display: flex
@@ -2209,53 +2218,8 @@
 			margin-bottom: 0
 			text-align: left
 
-
-.allrobot
-	padding: 50px 0
-	text-align: center
-	margin-bottom: 12px
-	background:#f4f4f4
-
-	+r(992)
-		padding: 25px 0
-
-	&__title
-		color: #000
-		margin-bottom: 20px
-		font-weight: bold
-
-		+r(992)
-			margin-bottom: 10px
-
-		+r(767)
-			margin-bottom: 5px
-
-	&__subtitle
-		color: #000000
-		font-weight: 400
-		margin-bottom: 20px
-
-		+r(992)
-			margin-bottom: 10px
-
-		+r(767)
-			margin-bottom: 5px
-
-	img
-		max-width: 1000px
-		width: 100%
-
-		+r(992)
-			max-width: 600px
-
-		+r(576)
-			max-width: 450px
-
-
+//----content-page----
 .content
-	background-repeat: no-repeat !important
-	background-size: cover !important
-	background-position: center !important
 	min-height: 550px
 
 	+r(1200)
@@ -2316,9 +2280,6 @@
 				padding: 5px
 
 .content-right
-	background-repeat: no-repeat !important
-	background-size: cover !important
-	background-position: center !important
 	min-height: 550px
 
 	+r(1200)
@@ -2392,8 +2353,138 @@
 		p
 			background-color: rgba(0, 0, 0, 0.7);
 
+.bg-cover
+	background-repeat: no-repeat !important
+	background-size: cover !important
+	background-position: center !important
 
-.parametersl800
+.bg-right
+	background-repeat: no-repeat !important
+	background-position: 50% !important
+
+.bg-left
+	background-repeat: no-repeat !important
+	background-position: -50% !important
+
+.allrobot
+	padding: 50px 0
+	text-align: center
+	margin-bottom: 12px
+	background:#f4f4f4
+
+	+r(992)
+		padding: 25px 0
+
+	&__title
+		color: #000
+		margin-bottom: 20px
+		font-weight: bold
+
+		+r(992)
+			margin-bottom: 10px
+
+		+r(767)
+			margin-bottom: 5px
+
+	&__subtitle
+		color: #000000
+		font-weight: 400
+		margin-bottom: 20px
+
+		+r(992)
+			margin-bottom: 10px
+
+		+r(767)
+			margin-bottom: 5px
+
+	img
+		max-width: 1000px
+		width: 100%
+
+		+r(992)
+			max-width: 600px
+
+		+r(576)
+			max-width: 450px
+
+//----l800----
+.perference
+	padding: 80px 0
+	background:#f4f4f4
+
+	+r(992)
+		padding: 50px 0
+
+	+r(576)
+		padding: 30px 0
+
+	&__container
+		display: flex
+		justify-content: space-around
+		gap: 150px
+
+		+r(1200)
+			gap: 70px
+
+		+r(992)
+			flex-direction: column
+			align-items: center
+
+	&__block
+		display: flex
+		width: 500px
+		align-items: center
+
+		+r(576)
+			width: 100%
+
+	&__text
+		padding-right: 50px
+
+		+r(992)
+			padding-right: 80px
+
+		+r(576)
+			padding-right: 10px
+
+
+	h2
+			margin-bottom: 15px
+			font-size: 24px
+			color: #079ad3
+
+			+r(1200)
+				font-size: 22px
+
+			+r(992)
+				font-size: 20px
+				margin-bottom: 10px
+
+			+r(576)
+				font-size: 18px
+
+				br
+					display: none
+
+	p
+		color: #626262
+		line-height: 24px
+		margin-bottom: 10px
+		&:last-child
+			margin-bottom: 0
+
+		+r(1200)
+			line-height: 23px
+
+		+r(992)
+			line-height: 20px
+
+		+r(576)
+			line-height: 18px
+
+
+
+.parameterspage
 
 	&__img
 		max-width: 600px

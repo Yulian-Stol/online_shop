@@ -99,7 +99,7 @@ document.addEventListener("DOMContentLoaded", function() {
 		}
 	};
 	tabs('.tabs', '.tabs__item', '.tabs__wrap', 'tabs--active');
-	tabs('.headerPage__menu', '.headerPage__item', '.headerPage__wrap', 'tabs--activee');
+	tabs('.headerpage__menu', '.headerpage__item', '.headerpage__wrap', 'tabs--activee');
 
 
 	//----------------------SLIDER-hero----------------------
