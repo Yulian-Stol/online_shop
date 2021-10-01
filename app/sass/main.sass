@@ -1907,9 +1907,10 @@
 	top: 0
 	background: rgba(255,255,255,.95)
 	padding: 10px 0
-	border-bottom: 1px solid #f6f6f6
+	border-bottom: 1px solid #c2c2c2
 
-	+r(576)
+
+	+r(767)
 		top: -35px
 
 	&__container
@@ -1965,6 +1966,7 @@
 		color: $text
 		line-height: 18px
 		cursor: pointer
+		@extend .link
 
 		+r(767)
 			font-size: 14px
@@ -2402,6 +2404,12 @@
 		color: #5e666e
 		font-size: 20px
 
+		+r(1200)
+			max-width: 300px
+
+		+r(767)
+			max-width: 200px
+
 		img
 			width: 100%
 			height: 100%
@@ -2476,6 +2484,62 @@
 
 				+r(767)
 					margin: auto
+
+.complect
+	padding-bottom: 20px
+
+	&__img
+		max-width: 500px
+		margin: auto
+		margin-top: 15px
+		padding-bottom: 20px
+		text-align: center
+		color: $dark
+		font-size: 20px
+
+		+r(1200)
+			max-width: 300px
+
+		+r(767)
+			max-width: 200px
+
+		img
+			width: 100%
+			height: 100%
+
+	&__list
+		display: flex
+		justify-content: center
+
+		&_content
+			display: grid
+			grid-template-columns: repeat(2, minmax(100px, 180px))
+			gap: 180px
+			margin-bottom: 15px
+			
+			+r(992)
+				gap: 150px
+
+			+r(767)
+				gap: 100px
+
+			+r(576)
+				gap: 30px
+
+			h4
+				font-size: 16px
+				color: #5e666e
+				font-weight: 500
+				display: block
+				width: 100%
+
+			p
+				font-size: 16px
+				color: #5e666e
+				font-weight: 700
+				display: block
+				width: 100%	
+				padding-left: 50%
 
 
 // -----MODAL-----
@@ -2595,6 +2659,7 @@
 			font-size: 25px
 			span
 				color: #128CDB
+				display: block
 
 .form
 	position: relative
