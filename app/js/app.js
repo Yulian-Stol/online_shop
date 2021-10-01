@@ -48,7 +48,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
 	};
 	headerFixed('.header', '.header--active');
-	// headerFixed('.header__basket', '.header__basket--active');
+	headerFixed('.basket', '.basket--active');
 
 	
 
