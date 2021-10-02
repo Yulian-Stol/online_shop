@@ -1179,6 +1179,8 @@
 		li
 			font-size: 16px
 			margin-bottom: 24px
+			list-style-type: disc
+			margin-left: 20px
 
 			+r(767)
 				margin-bottom: 15px
@@ -1510,7 +1512,10 @@
 
 .comparison
 	padding-top: 90px
-	padding-bottom: 50px
+	padding-bottom: 30px
+
+	+r(992)
+		padding-bottom: 10px
 
 	&__img
 		img
@@ -1565,6 +1570,13 @@
 		+r(576)
 			grid-template-columns: repeat(3, minmax(50px, 195px))
 
+		&_more
+			display: grid
+			grid-template-columns: repeat(3, minmax(140px, 195px))
+
+			+r(576)
+				grid-template-columns: repeat(3, minmax(50px, 195px))
+
 	&__ttitle
 		display: grid
 		grid-template-rows: 195px repeat(31,minmax(80px, 80px))
@@ -1591,10 +1603,16 @@
 			align-items: center
 
 			+r(576)
-				font-size: 14px
+				font-size: 13px
 
 			+r(480)
 				font-size: 11px
+
+		&_more
+			grid-template-rows: 195px repeat(14,minmax(80px, 80px)) 
+
+			+r(576)
+				grid-template-rows: 141px repeat(14,minmax(50px, 50px))
 
 		&_mobile
 			display: none
@@ -1690,6 +1708,12 @@
 			+r(480)
 				font-size: 12px
 
+		&_more
+			grid-template-rows: 195px repeat(14,minmax(80px, 80px))
+
+			+r(576)
+				grid-template-rows: 141px repeat(14,minmax(50px, 50px))
+
 .checkout
 	padding-top: 150px
 	padding-bottom: 50px
@@ -1774,6 +1798,7 @@
 			width: 124px
 			height: 124px
 			margin-right: 20px
+			object-fit: contain
 
 			+r(1200)
 				margin-right: 10px
