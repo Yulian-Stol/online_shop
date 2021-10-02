@@ -392,6 +392,13 @@
 				margin-top: 30px
 				+transition
 
+		&:hover
+			.header__mincartempty
+				opacity: 1
+				visibility: inherit
+				margin-top: 30px
+				+transition
+
 		svg
 			width: 20px
 			height: 20px
@@ -484,7 +491,6 @@
 				width: 100%
 				height: 100%
 				object-fit: cover
-				
 
 		&_close
 			position: relative
@@ -518,6 +524,27 @@
 				&::after,
 				&::before
 					background: red
+
+	&__mincartempty
+		position: absolute
+		right: 0
+		opacity: 0
+		visibility: hidden
+		margin-top: 0
+		width: 270px
+		background: #16171f
+		z-index: 2000
+		padding: 20px
+		+transition
+
+		+r(576)
+			right: -55px
+
+		h2
+			color: #fff
+			font-size: 20px
+			text-align: center
+			font-weight: 400
 
 	&__text
 		text-align: left
@@ -646,37 +673,51 @@
 			grid-column-gap: 0
 
 	&__hover
-		&:hover div
+		&:hover button
 			opacity: 1
 			+transition
 
 	&__price
 		font-size: 22px
 		color: #000000
-		margin-right: 100px
 		opacity: 0
 		cursor: pointer
 		display: flex
 		justify-content: flex-end
 		align-items: baseline
 		gap: 10px
+		margin: auto
+		margin-right: 5%
+		background: transparent
+		border: none
 		+transition
-
-		+r(767)
-			margin-right: 5%
 
 		p
 			display: flex
 			align-items: center
 			justify-content: flex-end
 
+		&:hover
+			color: #e49506 
+			svg
+				fill: #e49506 
+				+transition
+
 		svg
 			width: 23px
 			height: 23px
+			+transition
 
 	&__fill
+		p
+			+transition
+			&:hover
+				color: #e49506 
+				+transition
+
 		svg
 			fill: #FFF
+			+transition
 
 .company
 	padding: 90px 0
@@ -791,17 +832,40 @@
 				color: #000000
 
 	&__hover
-		&:hover div
+		&:hover button
 			opacity: 1
 			+transition
 
 	&__price
 		font-size: 22px
 		color: #000000
-		text-align: right
-		margin-right: 100px
 		opacity: 0
+		cursor: pointer
+		display: flex
+		justify-content: flex-end
+		align-items: baseline
+		gap: 10px
+		margin: auto
+		margin-right: 5%
+		background: transparent
+		border: none
 		+transition
+
+		&:hover
+			color: #e49506 
+			svg
+				fill: #e49506 
+				+transition
+
+		p
+			display: flex
+			align-items: center
+			justify-content: flex-end
+
+		svg
+			width: 23px
+			height: 23px
+			+transition
 
 	&__img
 		max-width: 90% !important
@@ -1190,9 +1254,17 @@
 		display: flex
 		justify-content: center
 		gap: 5px
+		margin: auto
+		background: transparent
+		border: none
+
+		svg
+			fill: #000
+			+transition
 
 		&:hover svg
 			fill: #e49506 
+			+transition
 
 		&:hover
 			color: #e49506
@@ -2239,7 +2311,7 @@
 
 		h2
 			margin-bottom: 15px
-			font-size: 24px
+			font-size: 30px
 			color: #079ad3
 
 			+r(1200)
@@ -2299,7 +2371,7 @@
 
 		h2
 			margin-bottom: 15px
-			font-size: 24px
+			font-size: 30px
 			color: #079ad3
 
 			+r(1200)
@@ -2349,9 +2421,9 @@
 .bg-dark
 	+r(576)
 		h2
-			background-color: rgba(0, 0, 0, 0.7);
+			background-color: rgba(0, 0, 0, 0.7)
 		p
-			background-color: rgba(0, 0, 0, 0.7);
+			background-color: rgba(0, 0, 0, 0.7)
 
 .bg-cover
 	background-repeat: no-repeat !important
@@ -2635,36 +2707,89 @@
 .aboutm
 	background: #f3f3f3
 
+	&__container
+		padding: 10% 15px
+
+		+r(992)
+			padding: 5% 15px
+
 	h2
-			margin-bottom: 15px
-			font-size: 24px
+			margin-bottom: 30px
+			font-size: 30px
 			color: #079ad3
+			margin-left: 10%
 
 			+r(1200)
+				margin-left: 5%
 				font-size: 22px
 
 			+r(992)
 				font-size: 20px
 				margin-bottom: 10px
+				background-color: rgba(0,0,0,0.5)
+				border-radius: 10px
+				text-align: center
+				margin-left: 0
 
 			+r(576)
 				font-size: 18px
-				background-color: rgba(0,0,0,0.4)
 				border-radius: 10px
 				text-align: center
 				padding: 5px
 
 	&__item
 		display: flex
+		align-items: center
+		gap: 30px
+
+		+r(992)
+			margin-left: 10%
+
+		+r(576)
+			gap: 2px
+			margin-left: 0%
 
 	&__list
 		display: grid
 		grid-template-columns: 300px 300px
 		gap: 50px
+		margin-left: 10%
+
+		+r(1200)
+			margin-left: 5%
+
+		+r(992)
+			background-color: rgba(0,0,0,0.5)
+			border-radius: 10px
+			margin-left: 0
+			grid-template-columns: 1fr 1fr
+			padding: 20px
+
+		+r(767)
+			gap: 30px
+
+		+r(576)
+			padding: 10px
+			gap: 10px
 
 	&__text
 		h4
 			font-size: 20px
+			margin-bottom: 5px
+
+			+r(992)
+				color: #fff
+
+			+r(576)
+				font-size: 16px
+				margin-bottom: 0
+
+		p
+			+r(992)
+				color: #fff
+
+			+r(576)
+				font-size: 14px
 
 // -----MODAL-----
 .modal
@@ -2810,6 +2935,9 @@
 		+r(767)
 			width: 50% 
 
+		+r(576)
+			width: 100%
+
 	&--label
 		display: none
 
@@ -2839,6 +2967,10 @@
 		display: flex
 		justify-content: space-between
 		gap: 30px
+
+		+r(576)
+			flex-direction: column
+			gap: 0
 
 	&::after
 		width: 100%
