@@ -410,6 +410,9 @@
 			right: 40px
 			+transition
 
+			+r(767)
+				display: none
+
 	&__cart
 		&_quantity
 			color: $dark
@@ -709,11 +712,11 @@
 			+transition
 
 	&__fill
-		p
+		color: #fff
+		+transition
+		&:hover
+			color: #e49506 
 			+transition
-			&:hover
-				color: #e49506 
-				+transition
 
 		svg
 			fill: #FFF
@@ -869,6 +872,17 @@
 
 	&__img
 		max-width: 90% !important
+
+	&__fill
+		color: #fff
+		+transition
+		&:hover
+			color: #e49506 
+			+transition
+
+		svg
+			fill: #FFF
+			+transition
 
 .help
 	padding-top: 90px
@@ -1999,6 +2013,9 @@
 		opacity: 1
 		+transition
 
+		+r(767)
+			display: block
+
 .headerpage
 	position: sticky
 	z-index: 1
@@ -2023,6 +2040,7 @@
 			font-family: $f_title
 			font-size: 30px
 			color: $title
+			text-align: center
 
 			+r(992)
 				font-size: 25px
@@ -2242,31 +2260,34 @@
 		padding-top: 20px
 		padding-bottom: 20px
 
-	&__container
-		h2
-			color: #079ad3
-			text-align: center
-			margin-bottom: 20px
-			font-size: 28px
+	&__title
+		color: #079ad3
+		text-align: center
+		margin-bottom: 20px
+		font-size: 28px
 
-			+r(992)
-				margin-bottom: 15px
+		+r(992)
+			margin-bottom: 15px
+			font-size: 22px
 
-		p
-			text-align: center
-			color: #626262
-			margin-bottom: 50px
-			font-weight: 400
+		+r(767)
+			font-size: 18px
 
-			+r(1200)
-				margin-bottom: 30px
+	p
+		text-align: center
+		color: #626262
+		margin-bottom: 50px
+		font-weight: 400
 
-			+r(992)
-				margin-bottom: 15px
+		+r(1200)
+			margin-bottom: 30px
 
-			+r(767)
-				br
-					display: none
+		+r(992)
+			margin-bottom: 15px
+
+	br
+		+r(767)
+			display: none
 
 	&__list
 		display: flex
@@ -2274,9 +2295,13 @@
 		justify-content: center
 		gap: 20px
 
+		+r(576)
+			gap: 15px
+
 	&__item
 		position: relative
-		width: 280px
+		width: 22%
+		min-width: 255px
 		display: flex
 		flex-direction: row
 		align-items: center
@@ -2284,6 +2309,15 @@
 		background: #fff
 		border-radius: 5px
 		box-shadow: 0 15px 15px -10px #c7c7c7
+
+		+r(767)
+			padding: 10px
+
+		+r(576)
+			min-width: 48%
+
+		+r(480)
+			min-width: 280px
 
 		b
 			position: absolute
@@ -2300,6 +2334,19 @@
 			color: #fff
 			background-color: #e8e8e8
 
+			+r(767)
+				right: 5px
+				top: 5px
+				font-size: 14px
+				width: 26px
+				height: 26px
+				line-height: 24px
+
+			+r(576)
+				top: -12px
+				border: 2px solid #fff
+				line-height: 22px
+
 			&::before
 				counter-increment: b
 				content: counter(b) " ";
@@ -2308,12 +2355,25 @@
 			width: 110px
 			margin-right: 15px
 
+			+r(1200)
+				width: 95px
+
+			+r(767)
+				width: 80px
+				margin-right: 10px
+
+			+r(576)
+				width: 60px
+
 		p
 			font-weight: 700
 			font-size: 16px
 			color: #143c56
 			margin-bottom: 0
 			text-align: left
+
+			+r(767)
+				font-size: 14px
 
 //----content-page----
 .content
@@ -2579,6 +2639,19 @@
 		+r(576)
 			line-height: 18px
 
+	&__img
+		width: 20%
+		flex-shrink: 0
+
+		+r(767)
+			width: 15%
+
+		+r(576)
+			width: 90px
+
+		img
+			width: 100%
+
 //----tabs-main-page----
 .parameterspage
 
@@ -2659,12 +2732,18 @@
 				display: block
 				width: 100%
 
+				+r(576)
+					font-size: 14px
+
 			p
 				font-size: 16px
 				color: #5e666e
 				font-weight: 700
 				display: block
 				width: 100%	
+
+				+r(576)
+					font-size: 14px
 
 			img
 				width: 20px
@@ -2720,6 +2799,9 @@
 				display: block
 				width: 100%
 
+				+r(576)
+					font-size: 14px
+
 			p
 				font-size: 16px
 				color: #5e666e
@@ -2727,6 +2809,9 @@
 				display: block
 				width: 100%	
 				padding-left: 50%
+
+				+r(576)
+					font-size: 14px
 
 //----another-block----
 .aboutm
